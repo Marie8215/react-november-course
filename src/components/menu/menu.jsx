@@ -1,4 +1,4 @@
-import { Count } from "../count/count";
+import { DishCounter } from "../dish-counter/dish-counter";
 
 export const Menu = ({ menu }) => {
   return (
@@ -8,7 +8,7 @@ export const Menu = ({ menu }) => {
         {menu.map(({ name, id }) => (
           <li key={id}>
             {name}
-            <Count />
+            <DishCounter />
           </li>
         ))}
       </ul>
