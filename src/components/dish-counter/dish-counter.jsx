@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Count } from "../count/count";
 
+const minDishCount = 0;
+const maxDishCount = 5;
+
 export const DishCounter = () => {
   const [value, setValue] = useState(0);
-  const minDishCount = 0;
-  const maxDishCount = 5;
+ 
 
   const increase = () => {
     if (value < maxDishCount) {

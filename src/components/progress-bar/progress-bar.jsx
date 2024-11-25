@@ -12,13 +12,16 @@ const countProgressPercent = () => {
 export const ProgressBar = () => {
   const [progress, setProgress] = useState(0);
 
-  const handleScroll = () => {
-    let progressPercent = countProgressPercent();
-    setProgress(progressPercent);
-  };
 
   useEffect(() => {
+
+    const handleScroll = () => {
+        const progressPercent = countProgressPercent();
+        setProgress(progressPercent);
+      };
+
     window.addEventListener("scroll", handleScroll);
+
 
     return () => {
       window.removeEventListener("scroll", handleScroll);

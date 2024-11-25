@@ -1,14 +1,18 @@
-import { useState } from "react";
 import { useForm } from "./use-form";
-import { ReviewCounter } from "../review-counter/review-counter";
+import { Count } from "../count/count"
 
 export const ReviewForm = () => {
-  const { form, setName, setText, setRating, clear } = useForm();
+  const { form, setName, setText, increaseRating, decreaseRating, clear } =
+    useForm();
   const { name, text, rating } = form;
 
   return (
     <>
-      <form>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+        }}
+      >
         <div>
           <span>Имя</span>
           <input
@@ -25,7 +29,13 @@ export const ReviewForm = () => {
             onChange={(event) => setText(event.target.value)}
           />
         </div>
-        <ReviewCounter value={rating} onChange={(value) => setRating(value)} />
+        <Count
+          increase={increaseRating}
+          decrease={decreaseRating}
+          value={rating.currentValue}
+          minValue={rating.minValue}
+          maxValue={rating.maxValue}
+        />
         <button
           onClick={(event) => {
             event.preventDefault();

@@ -7,7 +7,6 @@ export const Count = ({ decrease, increase, value, minValue, maxValue }) => {
       <button
         className="count-button"
         onClick={(event) => {
-          event.preventDefault();
           decrease();
         }}
         disabled={value === minValue}
@@ -18,7 +17,6 @@ export const Count = ({ decrease, increase, value, minValue, maxValue }) => {
       <button
         className="count-button"
         onClick={(event) => {
-          event.preventDefault();
           increase();
         }}
         disabled={value === maxValue}
