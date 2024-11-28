@@ -1,7 +1,9 @@
-.progress-bar{
+.progressBar{
     position: fixed;
     left: 0;
     top: 0;
     background-color: aquamarine;
     height: 20px;
 }
+
+

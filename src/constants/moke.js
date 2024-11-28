@@ -3,61 +3,9 @@ export const restaurants = [
     id: "a757a0e9-03c1-4a2a-b384-8ac21dbe2fb2",
     name: "Dishoom",
     menu: [
-      {
-        id: "d75f762a-eadd-49be-8918-ed0daa8dd024",
-        name: "Chicken tikka masala",
-        price: 12,
-        ingredients: ["chicken", "rice"],
-      },
-      {
-        id: "d75f762a-eadd-49be-8918-ed0daa8dd024",
-        name: "Chicken tikka masala",
-        price: 12,
-        ingredients: ["chicken", "rice"],
-      },
-      {
-        id: "d75f762a-eadd-49be-8918-ed0daa8dd024",
-        name: "Chicken tikka masala",
-        price: 12,
-        ingredients: ["chicken", "rice"],
-      },
-      {
-        id: "d75f762a-eadd-49be-8918-ed0daa8dd024",
-        name: "Chicken tikka masala",
-        price: 12,
-        ingredients: ["chicken", "rice"],
-      },
-      {
-        id: "d75f762a-eadd-49be-8918-ed0daa8dd024",
-        name: "Chicken tikka masala",
-        price: 12,
-        ingredients: ["chicken", "rice"],
-      },
-      {
-        id: "d75f762a-eadd-49be-8918-ed0daa8dd024",
-        name: "Chicken tikka masala",
-        price: 12,
-        ingredients: ["chicken", "rice"],
-      },
-      {
-        id: "d75f762a-eadd-49be-8918-ed0daa8dd024",
-        name: "Chicken tikka masala",
-        price: 12,
-        ingredients: ["chicken", "rice"],
-      },
-      {
-        id: "d75f762a-eadd-49be-8918-ed0daa8dd024",
-        name: "Chicken tikka masala",
-        price: 12,
-        ingredients: ["chicken", "rice"],
-      },
-      {
-        id: "d75f762a-eadd-49be-8918-ed0daa8dd024",
-        name: "Chicken tikka masala",
-        price: 12,
-        ingredients: ["chicken", "rice"],
-      },
-      {
+      
+      
+{
         id: "d75f762a-eadd-49be-8918-ed0daa8dd024",
         name: "Chicken tikka masala",
         price: 12,

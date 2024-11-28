@@ -1,0 +1,12 @@
+.restaurant {
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+    flex-wrap: wrap;
+}
+
+.restaurant h2{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}

@@ -1,5 +1,6 @@
 import { useForm } from "./use-form";
-import { Count } from "../count/count"
+import { Count } from "../count/count";
+import styles from "./review-form.module.css";
 
 export const ReviewForm = () => {
   const { form, setName, setText, increaseRating, decreaseRating, clear } =
@@ -7,14 +8,14 @@ export const ReviewForm = () => {
   const { name, text, rating } = form;
 
   return (
-    <>
+    <div className={styles.reviewForm}>
       <form
         onSubmit={(event) => {
           event.preventDefault();
         }}
       >
         <div>
-          <span>Имя</span>
+          <h3>Имя</h3>
           <input
             type="text"
             value={name}
@@ -22,20 +23,22 @@ export const ReviewForm = () => {
           />
         </div>
         <div>
-          <span>Текст</span>
+          <h3>Текст</h3>
           <input
             type="text"
             value={text}
             onChange={(event) => setText(event.target.value)}
           />
         </div>
-        <Count
-          increase={increaseRating}
-          decrease={decreaseRating}
-          value={rating.currentValue}
-          minValue={rating.minValue}
-          maxValue={rating.maxValue}
-        />
+        <span>
+          <Count
+            increase={increaseRating}
+            decrease={decreaseRating}
+            value={rating.currentValue}
+            minValue={rating.minValue}
+            maxValue={rating.maxValue}
+          />
+        </span>
         <button
           onClick={(event) => {
             event.preventDefault();
@@ -45,6 +48,6 @@ export const ReviewForm = () => {
           Очистить
         </button>
       </form>
-    </>
+    </div>
   );
 };
