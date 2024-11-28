@@ -1,0 +1,12 @@
+.restaurantsPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.restaurantsPageTitle{
+    font-size: 35px;
+    margin-bottom: 30px;
+}

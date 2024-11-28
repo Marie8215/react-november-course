@@ -6,14 +6,16 @@ const reducer = (state, { type, payload }) => {
       return { ...state, name: payload, text: "" };
     case "SET_TEXT":
       return { ...state, text: payload };
-    case "INCREASE_RATING":
+    case "INCREASE_RATING": {
       const newState = { ...state };
       newState.rating.currentValue += 1;
       return newState;
-    case "DECREASE_RATING":
+    }
+    case "DECREASE_RATING": {
       const newValue = { ...state };
       newValue.rating.currentValue -= 1;
       return newValue;
+    }
     case "CLEAR_FORM":
       return DEFAULT_FORM_VALUE;
     default:
@@ -33,8 +35,6 @@ const DEFAULT_FORM_VALUE = {
 
 export const useForm = () => {
   const [form, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
-
-  const { name, text, rating } = form;
 
   const setName = (name) => {
     dispatch({ type: "SET_NAME", payload: name });

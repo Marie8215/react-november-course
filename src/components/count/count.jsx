@@ -1,12 +1,11 @@
-import { useState } from "react";
-import "./count.css";
+import styles from "./count.module.css"
 
 export const Count = ({ decrease, increase, value, minValue, maxValue }) => {
   return (
-    <div className="count-container">
+    <div className={styles.count}>
       <button
-        className="count-button"
-        onClick={(event) => {
+        className={styles.countButton}
+        onClick={() => {
           decrease();
         }}
         disabled={value === minValue}
@@ -15,8 +14,8 @@ export const Count = ({ decrease, increase, value, minValue, maxValue }) => {
       </button>
       <p>{value}</p>
       <button
-        className="count-button"
-        onClick={(event) => {
+        className={styles.countButton}
+        onClick={() => {
           increase();
         }}
         disabled={value === maxValue}

@@ -6,7 +6,6 @@ const maxDishCount = 5;
 
 export const DishCounter = () => {
   const [value, setValue] = useState(0);
- 
 
   const increase = () => {
     if (value < maxDishCount) {

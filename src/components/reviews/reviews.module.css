@@ -1,0 +1,17 @@
+.reviews {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.reviewsTitle {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.reviewsList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
