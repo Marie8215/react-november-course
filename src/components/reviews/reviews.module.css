@@ -4,13 +4,13 @@
     
 }
 
-.reviews h3 {
+.reviewsTitle {
     font-size: 25px;
     font-weight: 500;
     margin-bottom: 20px;
 }
 
-.reviews ul {
+.reviewsList {
     display: flex;
     flex-direction: column;
     gap: 10px;

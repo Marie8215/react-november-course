@@ -6,7 +6,7 @@ import styles from "./restaurants-page.module.css";
 export const RestaurantsPage = () => {
   return (
     <div className={styles.restaurantsPage}>
-      <h1>Рестораны</h1>
+      <h1 className={styles.restaurantsPageTitle}>Рестораны</h1>
 
       <Tabs tabNames={restaurants.map((restaurant) => restaurant.name)}>
         {restaurants.map((restaurant) => (

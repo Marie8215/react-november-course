@@ -9,7 +9,7 @@ export const Restaurant = ({ restaurant }) => {
   return (
     <>
       <div className={styles.restaurant}>
-        <h2>{name}</h2>
+        <h2 className={styles.restaurantTitle}>{name}</h2>
         <Menu menu={menu} />
         {reviews.length && <Reviews reviews={reviews} />}
         <ReviewForm />

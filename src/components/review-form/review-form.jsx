@@ -15,22 +15,24 @@ export const ReviewForm = () => {
         }}
       >
         <div>
-          <h3>Имя</h3>
+          <h3 className={styles.reviewFormTitle}>Имя</h3>
           <input
+            className={styles.reviewForm}
             type="text"
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
         </div>
         <div>
-          <h3>Текст</h3>
+          <h3 className={styles.reviewFormTitle}>Текст</h3>
           <input
+            className={styles.reviewFormInput}
             type="text"
             value={text}
             onChange={(event) => setText(event.target.value)}
           />
         </div>
-        <span>
+        <span className={styles.reviewFormSpan}>
           <Count
             increase={increaseRating}
             decrease={decreaseRating}
@@ -40,6 +42,7 @@ export const ReviewForm = () => {
           />
         </span>
         <button
+          className={styles.reviewFormButton}
           onClick={(event) => {
             event.preventDefault();
             clear();

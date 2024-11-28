@@ -3,11 +3,13 @@ import styles from "./menu.module.css";
 
 export const Menu = ({ menu }) => {
   return (
-    <div className={styles.menu}>
-      <h3>Меню</h3>
-      <ul>
+    <div>
+      <h3 className={styles.menuHeader}>Меню</h3>
+      <ul className={styles.menuList}>
         {menu.map(({ name, id }) => (
-          <li key={id}>
+          <li 
+          className={styles.menuListItem}
+          key={id}>
             {name}
             <DishCounter />
           </li>

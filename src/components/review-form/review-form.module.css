@@ -7,27 +7,27 @@
     margin-bottom: 30px;
   }
   
-  .reviewForm h3 {
+  .reviewFormTitle {
     color: rgb(21, 81, 108);
     margin: 0;
     font-size: 20px;
   }
   
-  .reviewForm span {
+  .reviewFormSpan {
     display: flex;
     flex-direction: row;
     margin: 15px 0;
     align-items: center;
   }
   
-  .reviewForm input {
+  .reviewFormInput {
     border: 2px solid rgb(37, 37, 35);
     border-radius: 5px;
     height: 25px;
 
   }
   
-  .reviewForm button {
+  .reviewFormButton {
     background-color: #89b9e0;
     color: aliceblue;
     height: 50px;
@@ -36,7 +36,7 @@
 
   }
   
-  .reviewForm button:hover {
+  .reviewFormButton:hover {
     background-color: rgb(17, 110, 124);
   }
 
