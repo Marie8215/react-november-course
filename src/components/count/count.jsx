@@ -1,9 +1,10 @@
-import styles from "./count.module.css"
+import { Button } from "../button/button";
+import styles from "./count.module.css";
 
 export const Count = ({ decrease, increase, value, minValue, maxValue }) => {
   return (
     <div className={styles.count}>
-      <button
+      <Button
         className={styles.countButton}
         onClick={() => {
           decrease();
@@ -11,9 +12,9 @@ export const Count = ({ decrease, increase, value, minValue, maxValue }) => {
         disabled={value === minValue}
       >
         -
-      </button>
+      </Button>
       <p>{value}</p>
-      <button
+      <Button
         className={styles.countButton}
         onClick={() => {
           increase();
@@ -21,7 +22,7 @@ export const Count = ({ decrease, increase, value, minValue, maxValue }) => {
         disabled={value === maxValue}
       >
         +
-      </button>
+      </Button>
     </div>
   );
 };

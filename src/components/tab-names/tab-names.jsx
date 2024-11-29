@@ -1,3 +1,4 @@
+import { Button } from "../button/button";
 import styles from "./tab-names.module.css";
 
 export const TabNames = ({ tabNames, onClick }) => {
@@ -6,7 +7,12 @@ export const TabNames = ({ tabNames, onClick }) => {
       <ul className={styles.tabNamesList}>
         {tabNames.map((name, index) => (
           <li key={index}>
-            <button className={styles.tabNamesButton} onClick={() => onClick(index)}>{name}</button>
+            <Button
+              className={styles.tabNamesButton}
+              onClick={() => onClick(index)}
+            >
+              {name}
+            </Button>
           </li>
         ))}
       </ul>
