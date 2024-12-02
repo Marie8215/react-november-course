@@ -1,5 +1,4 @@
 import { ThemeButton } from "../theme-button/theme-button";
-import { UserButton } from "../user-button/user-button";
 import styles from "./header.module.css";
 import { User } from "../../constants/Users";
 import { Button } from "../button/button";
