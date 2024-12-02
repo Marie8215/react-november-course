@@ -1,11 +1,16 @@
 import { useForm } from "./use-form";
 import { Count } from "../count/count";
 import styles from "./review-form.module.css";
+import classNames from "classnames";
+import { useTheme } from "../theme-context/use-theme";
+import { Button } from "../button/button";
 
 export const ReviewForm = () => {
   const { form, setName, setText, increaseRating, decreaseRating, clear } =
     useForm();
   const { name, text, rating } = form;
+
+  const { value } = useTheme();
 
   return (
     <div className={styles.reviewForm}>
@@ -41,15 +46,17 @@ export const ReviewForm = () => {
             maxValue={rating.maxValue}
           />
         </span>
-        <button
-          className={styles.reviewFormButton}
+        <Button
+          className={classNames(styles.reviewFormButton, {
+            [styles.light]: value === "light",
+          })}
           onClick={(event) => {
             event.preventDefault();
             clear();
           }}
         >
           Очистить
-        </button>
+        </Button>
       </form>
     </div>
   );
