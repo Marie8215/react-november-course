@@ -4,9 +4,16 @@
     align-items: center;
 }
 
-
-
 .restaurantsPageTitle{
     font-size: 35px;
     margin-bottom: 30px;
 }
+
+.tabNamesList {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+    display: flex; 
+    gap: 15px; 
+    margin-bottom: 30px;
+  }

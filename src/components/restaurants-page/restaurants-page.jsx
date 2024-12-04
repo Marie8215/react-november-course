@@ -1,18 +1,28 @@
 import { restaurants } from "../../constants/moke";
 import { Restaurant } from "../restaurant/restaurant";
-import { Tabs } from "../tabs/tabs";
+import { useState } from "react";
+import { Tab } from "../tab/tab";
 import styles from "./restaurants-page.module.css";
 
 export const RestaurantsPage = () => {
+  const [selectedRestaurantIndex, setselectedRestaurantIndex] = useState(0);
+
   return (
     <div className={styles.restaurantsPage}>
       <h1 className={styles.restaurantsPageTitle}>Рестораны</h1>
 
-      <Tabs tabNames={restaurants.map((restaurant) => restaurant.name)}>
-        {restaurants.map((restaurant) => (
-          <Restaurant restaurant={restaurant} key={restaurant.id} />
+      <div className={styles.tabNamesList}>
+        {restaurants.map((restaurant, idx) => (
+          <Tab
+            title={restaurant.name}
+            key={idx}
+            id={idx}
+            onClick={setselectedRestaurantIndex}
+          />
         ))}
-      </Tabs>
+      </div>
+
+      {<Restaurant restaurant={restaurants[selectedRestaurantIndex]} />}
     </div>
   );
 };
