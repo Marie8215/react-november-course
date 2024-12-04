@@ -1,0 +1,9 @@
+.buttonDark {
+    background-color: rgb(38, 39, 52);
+    color: aliceblue
+}
+
+.buttonLight{
+    background-color: aliceblue;
+    color: black;
+}
