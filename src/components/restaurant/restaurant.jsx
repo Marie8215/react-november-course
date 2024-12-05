@@ -10,13 +10,11 @@ export const Restaurant = ({ restaurant }) => {
   const { user } = useContext(UserContext);
 
   return (
-    <>
-      <div className={styles.restaurant}>
-        <h2 className={styles.restaurantTitle}>{name}</h2>
-        <Menu menu={menu} />
-        {reviews.length && <Reviews reviews={reviews} />}
-        {user.isAuthorized && <ReviewForm />}
-      </div>
-    </>
+    <div className={styles.restaurant}>
+      <h2 className={styles.restaurantTitle}>{name}</h2>
+      <Menu dishIds={menu} />
+      {reviews.length && <Reviews reviewIds={reviews} />}
+      {user.isAuthorized && <ReviewForm />}
+    </div>
   );
 };

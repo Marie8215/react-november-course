@@ -1,22 +1,15 @@
-import { useContext } from "react";
-import { DishCounter } from "../dish-counter/dish-counter";
 import styles from "./menu.module.css";
-import { UserContext } from "../user-context";
+import { DishContainer } from "../dish/dish-container";
 
-export const Menu = ({ menu }) => {
-  const { user } = useContext(UserContext);
-
+export const Menu = ({ dishIds }) => {
   return (
     <div>
       <h3 className={styles.menuHeader}>Меню</h3>
-      <ul className={styles.menuList}>
-        {menu.map(({ name, id }) => (
-          <li className={styles.menuListItem} key={id}>
-            {name}
-            {user.isAuthorized && <DishCounter />}
-          </li>
+      <div className={styles.menuList}>
+        {dishIds.map((dishId) => (
+          <DishContainer id={dishId} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

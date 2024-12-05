@@ -1,0 +1,10 @@
+.dish{
+    height: 100px;
+    width: 200px;
+    background-color: #89b9e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
