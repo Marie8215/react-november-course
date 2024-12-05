@@ -1,28 +1,31 @@
-import { restaurants } from "../../constants/moke";
-import { Restaurant } from "../restaurant/restaurant";
 import { useState } from "react";
-import { Tab } from "../tab/tab";
 import styles from "./restaurants-page.module.css";
+import { useSelector } from "react-redux";
+import { selectRestaurantsIds } from "../../redux/entities/restaurants/restaurants-slice";
+import { RestaurantTabs } from "../restaurant-tabs/retaurant-tabs";
+import { RestaurantContainer } from "../restaurant/restaurant-container";
 
 export const RestaurantsPage = () => {
-  const [selectedRestaurantIndex, setselectedRestaurantIndex] = useState(0);
+  const restaurantIds = useSelector(selectRestaurantsIds);
+  const [currentRestaurantId, setCurrentRestaurantId] = useState(
+    restaurantIds[0]
+  );
 
   return (
     <div className={styles.restaurantsPage}>
       <h1 className={styles.restaurantsPageTitle}>Рестораны</h1>
 
       <div className={styles.tabNamesList}>
-        {restaurants.map((restaurant, idx) => (
-          <Tab
-            title={restaurant.name}
-            key={idx}
-            id={idx}
-            onClick={setselectedRestaurantIndex}
+        {restaurantIds.map((restaurantId) => (
+          <RestaurantTabs
+            key={restaurantId}
+            id={restaurantId}
+            onClick={setCurrentRestaurantId}
           />
         ))}
       </div>
 
-      {<Restaurant restaurant={restaurants[selectedRestaurantIndex]} />}
+      {<RestaurantContainer id={currentRestaurantId} />}
     </div>
   );
 };
