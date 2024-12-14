@@ -7,9 +7,9 @@ export const Dish = ({ name, id }) => {
   const { user } = useContext(UserContext);
 
   return (
-    <div className={styles.dish} key={id}>
+    <div className={styles.dish}>
       {name}
-      {user.isAuthorized && <DishCounter />}
+      {user.isAuthorized && <DishCounter id={id} />}
     </div>
   );
 };
