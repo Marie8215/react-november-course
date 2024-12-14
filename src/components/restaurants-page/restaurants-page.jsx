@@ -1,15 +1,11 @@
-import { useState } from "react";
 import styles from "./restaurants-page.module.css";
 import { useSelector } from "react-redux";
 import { selectRestaurantsIds } from "../../redux/entities/restaurants/restaurants-slice";
 import { RestaurantTabs } from "../restaurant-tabs/retaurant-tabs";
-import { RestaurantContainer } from "../restaurant/restaurant-container";
+import { Outlet } from "react-router";
 
 export const RestaurantsPage = () => {
   const restaurantIds = useSelector(selectRestaurantsIds);
-  const [currentRestaurantId, setCurrentRestaurantId] = useState(
-    restaurantIds[0]
-  );
 
   return (
     <div className={styles.restaurantsPage}>
@@ -17,15 +13,10 @@ export const RestaurantsPage = () => {
 
       <div className={styles.tabNamesList}>
         {restaurantIds.map((restaurantId) => (
-          <RestaurantTabs
-            key={restaurantId}
-            id={restaurantId}
-            onClick={setCurrentRestaurantId}
-          />
+          <RestaurantTabs key={restaurantId} id={restaurantId} />
         ))}
       </div>
-
-      {<RestaurantContainer id={currentRestaurantId} />}
+      <Outlet />
     </div>
   );
 };
