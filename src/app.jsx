@@ -10,6 +10,7 @@ import { RestaurantPage } from "./components/restaurant-page/restaurant-page";
 import { MenuPage } from "./components/menu-page/menu-page";
 import { ReviewsPage } from "./components/reviews-page/reviews-page";
 import { Homepage } from "./components/homepage/homepage";
+import { DishPage } from "./components/dish-page/dish-page";
 
 const router = createBrowserRouter([
   {
@@ -22,13 +23,13 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/restaurants/:restaurantId/menu",
-            element: <MenuPage/>,
+            element: <MenuPage />,
           },
           {
             path: "/restaurants/:restaurantId/reviews",
-            element: <ReviewsPage/>,
+            element: <ReviewsPage />,
           },
-        ]
+        ],
       },
     ],
   },
@@ -36,6 +37,9 @@ const router = createBrowserRouter([
     path: "/home",
     element: <Homepage />,
   },
+  { 
+    path: "dish/:dishId", 
+    element: <DishPage /> },
 ]);
 
 export const App = () => {
