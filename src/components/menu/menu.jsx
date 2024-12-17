@@ -7,7 +7,7 @@ export const Menu = ({ dishIds }) => {
       <h3 className={styles.menuHeader}>Меню</h3>
       <div className={styles.menuList}>
         {dishIds.map((dishId) => (
-          <DishContainer id={dishId} />
+          <DishContainer key={dishId} id={dishId} />
         ))}
       </div>
     </div>

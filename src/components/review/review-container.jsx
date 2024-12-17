@@ -5,12 +5,11 @@ import { selectUserById } from "../../redux/entities/users/users-slice";
 
 export const ReviewContainer = ({ id }) => {
   const review = useSelector((data) => selectReviewById(data, id));
+  const user = useSelector((data) => selectUserById(data, review?.userId));
 
   if (!review) {
     return;
   }
-
-  const user = useSelector((data) => selectUserById(data, review.userId));
 
   return (
     <Review

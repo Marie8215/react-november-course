@@ -1,29 +1,27 @@
-import { useState } from "react";
 import { Count } from "../count/count";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  removeFromCart,
+  selectAmountById,
+} from "../../redux/ui/cart/cart-slice";
 
 const minDishCount = 0;
 const maxDishCount = 5;
 
-export const DishCounter = () => {
-  const [value, setValue] = useState(0);
+export const DishCounter = ({ id }) => {
+  const increase = () => dispatch(addToCart(id));
+  const decrease = () => dispatch(removeFromCart(id));
 
-  const increase = () => {
-    if (value < maxDishCount) {
-      setValue(value + 1);
-    }
-  };
+  const dispatch = useDispatch();
 
-  const decrease = () => {
-    if (value > minDishCount) {
-      setValue(value - 1);
-    }
-  };
+  const amount = useSelector((state) => selectAmountById(state, id)) || 0;
 
   return (
     <Count
       increase={increase}
       decrease={decrease}
-      value={value}
+      value={amount}
       minValue={minDishCount}
       maxValue={maxDishCount}
     />
