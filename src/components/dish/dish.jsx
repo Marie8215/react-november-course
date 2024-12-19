@@ -4,13 +4,13 @@ import { useContext } from "react";
 import { UserContext } from "../user-context";
 import { Link } from "react-router";
 
-export const Dish = ({ name, id }) => {
+export const Dish = ({ name, dishId }) => {
   const { user } = useContext(UserContext);
 
   return (
     <div className={styles.dish}>
-      <Link to={`/dish/${id}`}> {name} </Link>
-      {user.isAuthorized && <DishCounter id={id} />}
+      <Link to={`/dish/${dishId}`}> {name} </Link>
+      {user.isAuthorized && <DishCounter id={dishId} />}
     </div>
   );
 };
