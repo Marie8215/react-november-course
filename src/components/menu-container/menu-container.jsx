@@ -1,29 +1,21 @@
-import { useSelector } from "react-redux";
 import { Menu } from "../menu/menu";
-import { selectRestaurantById } from "../../redux/entities/restaurants/restaurants-slice";
-import { useRequest } from "../../redux/hooks/use-request";
-import { getMenu } from "../../redux/entities/dishes/get-menu";
+import { useGetDishesByRestaurantIdQuery } from "../../redux/services/api";
 
 export const MenuContainer = ({ restaurantId }) => {
-  const restaurant = useSelector((data) =>
-    selectRestaurantById(data, restaurantId)
-  );
+  const { data, isLoading, isError } =
+    useGetDishesByRestaurantIdQuery(restaurantId);
 
-  const requestStatus = useRequest(getMenu);
-
-  if (requestStatus === "pending") {
+  if (isLoading) {
     return "Загрузка...";
   }
 
-  if (requestStatus === "rejected") {
+  if (isError) {
     return "Ошибка";
   }
 
-  if (!restaurant) {
-    return;
+  if (!data.length) {
+    return null;
   }
 
-  const { menu } = restaurant;
-
-  return <Menu dishIds={menu} />;
+  return <Menu dishes={data} />;
 };

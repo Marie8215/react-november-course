@@ -1,13 +1,13 @@
 import styles from "./menu.module.css";
-import { DishContainer } from "../dish/dish-container";
+import { Dish } from "../dish/dish";
 
-export const Menu = ({ dishIds }) => {
+export const Menu = ({ dishes }) => {
   return (
     <div>
       <h3 className={styles.menuHeader}>Меню</h3>
       <div className={styles.menuList}>
-        {dishIds.map((dishId) => (
-          <DishContainer key={dishId} id={dishId} />
+        {dishes.map((dish) => (
+          <Dish name={dish.name} dishId={dish.id} />
         ))}
       </div>
     </div>
