@@ -3,7 +3,7 @@ import { UserContext } from ".";
 
 const emptyUser = {
   isAuthorized: false,
-  userData: undefined, // {}
+  userData: undefined, 
 };
 
 export const UserContextProvider = ({ children }) => {

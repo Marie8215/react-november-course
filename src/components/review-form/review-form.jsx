@@ -4,13 +4,15 @@ import styles from "./review-form.module.css";
 import classNames from "classnames";
 import { useTheme } from "../theme-context/use-theme";
 import { Button } from "../button/button";
+import { useContext } from "react";
+import { UserContext } from "../user-context";
 
-export const ReviewForm = () => {
-  const { form, setName, setText, increaseRating, decreaseRating, clear } =
-    useForm();
-  const { name, text, rating } = form;
+export const ReviewForm = ({ onSubmit }) => {
+  const { form, setText, increaseRating, decreaseRating, clear } = useForm();
+  const { text, rating } = form;
 
   const { value } = useTheme();
+  const { user } = useContext(UserContext);
 
   return (
     <div className={styles.reviewForm}>
@@ -19,15 +21,6 @@ export const ReviewForm = () => {
           event.preventDefault();
         }}
       >
-        <div>
-          <h3 className={styles.reviewFormTitle}>Имя</h3>
-          <input
-            className={styles.reviewForm}
-            type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
-        </div>
         <div>
           <h3 className={styles.reviewFormTitle}>Текст</h3>
           <input
@@ -56,6 +49,17 @@ export const ReviewForm = () => {
           }}
         >
           Очистить
+        </Button>
+        <Button
+          className={classNames(styles.reviewFormButton, {
+            [styles.light]: value === "light",
+          })}
+          onClick={() => {
+            onSubmit({ text, rating, userId: user.userData.id });
+            clear();
+          }}
+        >
+          Добавить
         </Button>
       </form>
     </div>

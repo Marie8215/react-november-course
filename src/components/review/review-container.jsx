@@ -1,21 +1,23 @@
-import { useSelector } from "react-redux";
-import { selectReviewById } from "../../redux/entities/reviews/reviews-slice";
 import { Review } from "./review";
-import { selectUserById } from "../../redux/entities/users/users-slice";
-import { useRequest } from "../../redux/hooks/use-request";
-import { getUsers } from "../../redux/entities/users/get-users";
+import { useGetUsersQuery } from "../../redux/services/api";
 
-export const ReviewContainer = ({ id }) => {
-  const review = useSelector((data) => selectReviewById(data, id));
-  const user = useSelector((data) => selectUserById(data, review?.userId));
+export const ReviewContainer = ({ review }) => {
+  const {
+    data: user,
+    isLoading,
+    isError,
+  } = useGetUsersQuery(undefined, {
+    selectFromResult: (result) => ({
+      ...result,
+      data: result?.currentData?.find((user) => user.id === review.userId),
+    }),
+  });
 
-  const usersRequestStatus = useRequest(getUsers);
-
-  if (usersRequestStatus === "pending") {
+  if (isLoading) {
     return "Загрузка...";
   }
 
-  if (usersRequestStatus === "rejected") {
+  if (isError) {
     return "Ошибка";
   }
 
@@ -25,10 +27,10 @@ export const ReviewContainer = ({ id }) => {
 
   return (
     <Review
-      id={id}
+      id={review.id}
       text={review.text}
-      userId={review.userId}
-      userName={user?.name}
+      userId={user.id}
+      userName={user.name}
     />
   );
 };
