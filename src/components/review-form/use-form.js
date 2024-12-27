@@ -2,8 +2,6 @@ import { useReducer } from "react";
 
 const reducer = (state, { type, payload }) => {
   switch (type) {
-    case "SET_NAME":
-      return { ...state, name: payload, text: "" };
     case "SET_TEXT":
       return { ...state, text: payload };
     case "INCREASE_RATING": {
@@ -24,7 +22,6 @@ const reducer = (state, { type, payload }) => {
 };
 
 const DEFAULT_FORM_VALUE = {
-  name: "",
   text: "",
   rating: {
     minValue: 1,
@@ -35,10 +32,6 @@ const DEFAULT_FORM_VALUE = {
 
 export const useForm = () => {
   const [form, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
-
-  const setName = (name) => {
-    dispatch({ type: "SET_NAME", payload: name });
-  };
 
   const setText = (text) => {
     dispatch({ type: "SET_TEXT", payload: text });
@@ -58,7 +51,6 @@ export const useForm = () => {
 
   return {
     form,
-    setName,
     setText,
     increaseRating,
     decreaseRating,

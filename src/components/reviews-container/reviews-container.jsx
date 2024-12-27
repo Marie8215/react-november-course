@@ -1,6 +1,7 @@
 import { Reviews } from "../reviews/reviews";
 import { ReviewForm } from "../review-form/review-form";
 import {
+  useAddReviewMutation,
   useGetReviewsByRestaurantIdQuery,
   useGetUsersQuery,
 } from "../../redux/services/api";
@@ -12,7 +13,18 @@ export const ReviewsContainer = ({ restaurantId }) => {
     useGetReviewsByRestaurantIdQuery(restaurantId);
   useGetUsersQuery();
 
+  const [addReview] = useAddReviewMutation();
+
   const { user } = useContext(UserContext);
+
+  const createNewReview = (review) => {
+    let newReview = {
+      restaurantId,
+      review,
+    };
+
+    addReview(newReview);
+  };
 
   if (isLoading) {
     return "Загрузка...";
@@ -29,7 +41,7 @@ export const ReviewsContainer = ({ restaurantId }) => {
   return (
     <>
       {data.length && <Reviews reviews={data} />}
-      {user.isAuthorized && <ReviewForm />}
+      {user.isAuthorized && <ReviewForm onSubmit={createNewReview} />}
     </>
   );
 };
